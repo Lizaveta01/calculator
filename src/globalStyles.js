@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import theme from './theme'
+import { lightTheme } from './theme'
 
 export default createGlobalStyle`
   * {
@@ -8,7 +8,21 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 
-    font-family: ${theme.font};
+    font-family: ${lightTheme.font};
+  }
+
+  ol li,
+  ul li {
+    list-style: none;
+  }
+
+  a,
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 
   html, body {

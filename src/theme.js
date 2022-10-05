@@ -2,14 +2,6 @@ import { css } from 'styled-components'
 
 const font = 'sans-serif'
 
-// Color palette
-const black = '#000000'
-const white = '#ffffff'
-const error = '#c86464'
-const primary = '#c06c84'
-const secondary = '#6c5b7b'
-const secondaryLight = '#6a6b7b'
-
 const boxShadows = [
   'box-shadow: 0px 4px 24px -8px rgba(0,0,0,0.75)',
 ]
@@ -39,19 +31,50 @@ const below = Object.keys(size).reduce((acc, label) => {
   return acc
 }, {})
 
-export default {
+export const lightTheme = {
   above,
   below,
   boxShadows,
   font,
   spaces: [0, 4, 8, 16, 32, 64, 128],
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
-  colors: {
-    primary,
-    secondary,
-    secondaryLight,
-    black,
-    white,
-    error,
+  colors:{
+    WHITE:'#ffffff',
+    BODY_HEADFONT: '#ffffff', // цвет поля/цвет шрифта хедера
+    PRIMARY_HEADER_NUMBER: '#4b4b4b', // цвет хедера и цифр
+    SECONDARY_NO_ACTIVE_LINK_BORDER: '#bcbcbc',// цвет неактивной линки и обводка у кнопок/границы блоков
+    SECONDARY_LIGHT_BUTTOM:'#eeeeee',// цвет кнопок
+  },
+}
+
+export const darkTheme = {
+  above,
+  below,
+  boxShadows,
+  font,
+  spaces: [0, 4, 8, 16, 32, 64, 128],
+  fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
+  colors:{
+    WHITE:'#ffffff',
+    BODY_HEADFONT: '#4b4b4b',
+    PRIMARY_HEADER_NUMBER: '#ffffff',
+    SECONDARY_NO_ACTIVE_LINK_BORDER: '#a6a6a6',
+    SECONDARY_LIGHT_BUTTOM: '#bcbcbc',
+  },
+}
+
+export const coloredTheme = {
+  above,
+  below,
+  boxShadows,
+  font,
+  spaces: [0, 4, 8, 16, 32, 64, 128],
+  fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
+  colors:{
+    WHITE:'#ffffff',
+    BODY_HEADFONT: '#f7b1c5',
+    PRIMARY_HEADER_NUMBER: '#6c5b7b',
+    SECONDARY_NO_ACTIVE_LINK_BORDER: '#bcbcbc',
+    SECONDARY_LIGHT_BUTTOM:'#eeeeee',
   },
 }
