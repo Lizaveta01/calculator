@@ -6,6 +6,7 @@ display: flex;
 flex-direction: column;
 border-left: 2px solid ${({ theme }) => theme.colors.SECONDARY_NO_ACTIVE_LINK_BORDER};
 padding-left: 40px;
+padding-top: 10px;
 p{
   font-size: 20px;
   margin-bottom: 30px;

@@ -25,5 +25,9 @@ export const LinkWrapper = styled.div`
       border-bottom: 2px solid ${({ theme }) => theme.colors.BODY_HEADFONT};
       color: ${({ theme }) => theme.colors.BODY_HEADFONT};
     }
+    &.active{
+      color: ${({ theme }) => theme.colors.BODY_HEADFONT};
+      border-bottom: 2px solid ${({ theme }) => theme.colors.BODY_HEADFONT};
+    }
   }
 `

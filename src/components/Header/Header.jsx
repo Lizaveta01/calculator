@@ -9,7 +9,7 @@ const Header = () => {
     <HeaderWrapper>
     <p>Calculator App</p>
     <LinkWrapper>
-      <NavLink to={HOME_PAGE_ROUTE}>Home</NavLink>
+      <NavLink exact to={HOME_PAGE_ROUTE}>Home</NavLink>
       <NavLink to={SETTINGS_PAGE_ROUTE}>Settings</NavLink>
     </LinkWrapper>
     </HeaderWrapper>

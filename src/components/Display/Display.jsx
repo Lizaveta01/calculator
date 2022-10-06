@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { Component }  from 'react'
+
+import { connect }  from 'react-redux'
 import { Wrapper } from '@/components/Display/Display.styled'
-const Display = () => {
-  return (
-    <Wrapper>
-      <input type="text" value={4500}/>
-    </Wrapper>
-  )
+
+
+class Display extends Component {
+  render() {
+    const { value } = this.props
+    return (
+      <Wrapper>
+        <p>{value}</p>
+      </Wrapper>
+    )
+  }
+
 }
-export default Display
+
+const mapStateToProps = state => {
+  return {
+    value: state.value,
+  }
+}
+
+export default connect(mapStateToProps)(Display)
+

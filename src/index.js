@@ -5,21 +5,18 @@ import ReactDOM from 'react-dom'
 
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { ThemeProvider } from 'styled-components'
 
-import Application from '@/App/App'
+import App from '@/App/App'
 import { store } from '@/store'
-import { lightTheme } from '@/theme'
+
 import GlobalStyles from '@/globalStyles'
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={lightTheme}>
-      <BrowserRouter>
-        <Application />
-        <GlobalStyles />
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <App />
+      <GlobalStyles />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
 )
