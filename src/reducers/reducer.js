@@ -17,7 +17,8 @@ const reducer = (state = INITIAL_STATE, action) => {
     case "EQUAL":
       return {
         ...state,
-        value: 'res',
+        value: action.value,
+
       }
     case "CLEAR":
       return {

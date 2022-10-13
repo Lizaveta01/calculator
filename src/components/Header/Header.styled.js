@@ -5,9 +5,8 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0px 20px;
+  padding: 20px 20px;
   background-color: ${({ theme }) => theme.colors.PRIMARY_HEADER_NUMBER};
-  height: 60px;
   p {
     color: ${({ theme }) => theme.colors.BODY_HEADFONT};
   }

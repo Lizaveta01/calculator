@@ -1,5 +1,5 @@
-import React, { Component }  from 'react'
-
+import React, { Component } from 'react'
+import { getResult } from '@/helpers/getResult'
 
 import { connect } from 'react-redux'
 import { data } from '@/components/Keypad/data'
@@ -10,6 +10,7 @@ import {
 } from '@/components/Keypad/Keypad.styled'
 import { bindActionCreators } from 'redux'
 import * as actions from '@/actions/actions'
+import { checkValidation } from '@/helpers/checkValidation'
 
 class Keypad extends Component {
   render() {
@@ -22,30 +23,8 @@ class Keypad extends Component {
     } = this.props
 
     const checkElem = elem => {
-      let newElem = ''
-      const operationNoStart = ['+','.','/','*',')','=','0']
-      const operationNoCountin = ['+','-','.','/','*','=']
-      const operationNoStartBrackets = [ '.', '/', '*', '+']
-      const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-      if ((value.length === 0 && operationNoStart.includes(elem)) ||
-        (operationNoCountin.includes(elem) && operationNoCountin.includes(value.slice(-1))) ||
-        (elem === ')' && value.slice(-1) === ')') ||
-        (elem === '(' && numbers.includes(value.slice(-1))) ||
-        (elem === ')' && operationNoCountin.includes(value.slice(-1))) ||
-        (elem === ')' && value.includes('(') === false) ||
-        (elem === ')' && value === '(') ||
-        (elem === '0' && value.slice(-1) === '(') ||
-        (elem === '(' && value.slice(-1) === '(') ||
-        (elem === '(' && value.slice(-1) === ')') ||
-        (elem === '(' && operationNoCountin.includes(value.slice(-1) === false)) ||
-        (value.slice(-1) === '(' && operationNoStartBrackets.includes(elem)))
-      {
-        newElem = ''
-      } else {
-        newElem = elem
-      }
-      addElem(newElem)
+      const chekedElem = checkValidation(elem, value)
+      addElem(chekedElem)
     }
 
     const renderKeys = arr => {
@@ -54,7 +33,7 @@ class Keypad extends Component {
           return (
             <KeyItem
               key={item.view}
-              onClick={() => equal()}>
+              onClick={() => equal(getResult(value))}>
               {item.view}
             </KeyItem>
           )
@@ -102,10 +81,6 @@ const mapDispatchToProps = dispatch => {
   const {
     addElem,
     equal,
-    plus,
-    minus,
-    multiply,
-    divide,
     clearAll,
     deleteElem,
   } = bindActionCreators(actions, dispatch)
@@ -113,10 +88,6 @@ const mapDispatchToProps = dispatch => {
   return {
     addElem,
     equal,
-    plus,
-    minus,
-    multiply,
-    divide,
     clearAll,
     deleteElem,
   }

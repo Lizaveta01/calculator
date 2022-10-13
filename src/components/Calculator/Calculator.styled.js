@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
+  padding-top: 10px;
   width: 100%;
   display: flex;
   background: ${({ theme }) => theme.colors.BODY_HEADFONT};

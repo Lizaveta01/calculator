@@ -17,11 +17,11 @@ export const data = [
   },
   {
     code: '',
-    view: '*',
+    view: ' * ',
   },
   {
     code: 'Minus',
-    view: '-',
+    view: ' - ',
   },
   {
     code: 'Digit4',
@@ -37,11 +37,11 @@ export const data = [
   },
   {
     code: 'Slash',
-    view: '/',
+    view: ' / ',
   },
   {
     code: '',
-    view: '+',
+    view: ' + ',
   },
   {
     code: 'Digit1',
@@ -66,7 +66,7 @@ export const data = [
   },
   {
     code: '',
-    view: '(',
+    view: '( ',
   },
   {
     code: 'Digit0',
@@ -74,10 +74,14 @@ export const data = [
   },
   {
     code: '',
-    view: ')',
+    view: ' )',
   },
   {
     code: 'Backspace',
     view: 'CE',
+  },
+  {
+    code: 'Procent',
+    view: ' % ',
   },
 ]

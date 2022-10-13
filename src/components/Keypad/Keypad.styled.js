@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const KeysContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 30px 60px;
   flex-wrap: wrap;
 
