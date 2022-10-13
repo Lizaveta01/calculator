@@ -1,10 +1,24 @@
+import { bindActionCreators } from "redux"
+import * as actions from "@/actions/actions"
+import {store} from '@/store'
+
+const { dispatch } = store
+const { deleteElem} = bindActionCreators(actions, dispatch)
+
+
+
 export const checkValidation = (el, val) => {
+
   const elem = el.trim()
   const value = val.split(' ').join('')
   const lastSymbol = value.slice(-1)
   const operation = [ '+', '-', '/', '*', '%']
   const operationNoStart = ['+','/', '*', ')', '=',  '0', '%']
 
+
+ if(value.length===1 && value.indexOf(0)=== 0) {
+  deleteElem()
+ }
 // Проверка если последний элемент это пустая строка
   if (lastSymbol === ''){
     if(operationNoStart.includes(elem)) {
@@ -82,8 +96,12 @@ export const checkValidation = (el, val) => {
   if (operation.includes(lastSymbol)){
     if (elem === '.') {
       return `0${el}`
-    } else if (operation.includes(elem) || elem === ')') {
+    } else if (elem === ')') {
       return ''
+    } else if (operation.includes(elem)) {
+      deleteElem()
+      deleteElem()
+      return el
     } else {
       return el
     }
@@ -114,6 +132,9 @@ function isBalanced(string) {
         }
     }
     if (!openBrackets.length) canClose = false
+  }
+  if (str.includes('(')=== false){
+    canClose = false
   }
   return canClose
 }

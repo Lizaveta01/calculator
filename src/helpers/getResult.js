@@ -1,3 +1,11 @@
+import { bindActionCreators } from "redux"
+import * as actions from "@/actions/actions"
+import {store} from '@/store'
+
+const { dispatch } = store
+const { addHistory } = bindActionCreators(actions, dispatch)
+
+
 export function getResult(str) {
   const numbers = []
   const symbols = []
@@ -48,7 +56,7 @@ export function getResult(str) {
     } else if (el === ')') {
       countValue(el)
     } else if (el === 'end') {
-      
+
     } else {
       symbols.push(el)
     }
@@ -60,18 +68,23 @@ export function getResult(str) {
     const prevLastNum = +numbers[numbers.length - 2]
     switch (symbols[symbols.length - 1]) {
       case '/':
+        addHistory(`${prevLastNum} / ${lastNum}`)
         value = (roundToThree(prevLastNum / lastNum)).toString()
         break
       case '*':
+        addHistory(`${prevLastNum} * ${lastNum}`)
         value = (roundToThree(prevLastNum * lastNum)).toString()
         break
       case '+':
+        addHistory(`${prevLastNum} + ${lastNum}`)
         value = (prevLastNum + lastNum).toString()
         break
       case '-':
+        addHistory(`${prevLastNum} - ${lastNum}`)
         value = (prevLastNum - lastNum).toString()
         break
       case '%':
+        addHistory(`${prevLastNum} % ${lastNum}`)
         value = (prevLastNum % lastNum).toString()
         break
       case '(':
@@ -95,3 +108,4 @@ export function getResult(str) {
 function roundToThree(num) {
   return +(Math.round(num + "e+3")  + "e-3")
 }
+

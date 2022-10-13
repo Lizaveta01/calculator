@@ -4,9 +4,14 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+  min-height: 683px;
   gap: 20px;
   padding-left: 40px;
   background: ${({ theme }) => theme.colors.BODY_HEADFONT};
+
   h1 {
     font-weight: 500;
     margin-top: 40px;
@@ -28,11 +33,13 @@ export const Wrapper = styled.div`
     border-radius: 4px;
     font-size: 20px;
     padding: 0px 12px;
-    &:hover{
-      background: ${({ theme }) =>
-      theme.colors.PRIMARY_HEADER_NUMBER};
+    transition: all 0.3s ease 0s;
+    &:hover {
       color: ${({ theme }) =>
-      theme.colors.SECONDARY_LIGHT_BUTTOM};
+        theme.colors.HOVER_BUTTON_TEXT};
+      background: ${({ theme }) =>
+        theme.colors.HOVER_BUTTON_BACKGROUND};
+      box-shadow: 12px 16px 15px -2px ${({ theme }) => theme.colors.HOVER_BUTTON_SHADOW};
     }
   }
 `
@@ -63,6 +70,4 @@ export const SettingsContainer = styled.div`
     font-size: 20px;
     padding: 0px 12px;
   }
-
 `
-

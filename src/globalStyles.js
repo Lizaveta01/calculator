@@ -33,7 +33,8 @@ export default createGlobalStyle`
   body {
     & > #root {
       width: 100%;
-      height: 100%;
+      min-height: 100vh;
+      height: auto;
     }
   }
 
@@ -41,6 +42,22 @@ export default createGlobalStyle`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    &::-webkit-scrollbar {
+    background-color: #8070d4;
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-clip: content-box;
+    background-color: white;
+  }
+
   }
 
   #root {

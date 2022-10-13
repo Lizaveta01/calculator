@@ -27,48 +27,35 @@ class Keypad extends Component {
       addElem(chekedElem)
     }
 
+    const getButtonOperation = type =>{
+      switch(type){
+        case '=':
+          return equal(getResult(value))
+        case 'C':
+          return clearAll()
+        case 'CE':
+          return deleteElem()
+        default:
+          return checkElem(type)
+      }
+    }
+
     const renderKeys = arr => {
       const items = arr.map(item => {
-        if (item.view === '=') {
-          return (
-            <KeyItem
-              key={item.view}
-              onClick={() => equal(getResult(value))}>
-              {item.view}
-            </KeyItem>
-          )
-        } else if (item.view === 'C') {
-          return (
-            <KeyItem
-              key={item.view}
-              onClick={() => clearAll()}>
-              {item.view}
-            </KeyItem>
-          )
-        } else if (item.view === 'CE') {
-          return (
-            <KeyItem
-              key={item.view}
-              onClick={() => deleteElem()}>
-              {item.view}
-            </KeyItem>
-          )
-        } else {
-          return (
-            <KeyItem
-              key={item.view}
-              onClick={() => checkElem(item.view)}>
-              {item.view}
-            </KeyItem>
-          )
-        }
+        return (
+              <KeyItem
+                key={item.view}
+                onClick={() => getButtonOperation(item.view)}>
+                {item.view}
+              </KeyItem>
+            )
       })
-      return <KeysContainer>{items}</KeysContainer>
+      return items
     }
 
     const keys = renderKeys(data)
 
-    return <Wrapper>{keys}</Wrapper>
+    return <KeysContainer>{keys}</KeysContainer>
   }
 }
 

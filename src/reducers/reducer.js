@@ -1,9 +1,9 @@
 import { lightTheme } from '@/theme'
 
 const INITIAL_STATE = {
-  value: '',
+  value: '0',
   theme: {...lightTheme},
-  history: '0',
+  history: [],
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -18,7 +18,12 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         value: action.value,
-
+      }
+    case "ADD_HISTORY":
+      console.log('history', action.history)
+      return {
+        ...state,
+        history: [action.history,...state.history],
       }
     case "CLEAR":
       return {
@@ -35,6 +40,13 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         theme:{...action.theme},
       }
+    case "CLEAR_HISTORY":
+      return {
+        ...state,
+        value: '0',
+        history:[],
+      }
+
     default:
       return state
   }

@@ -36,6 +36,7 @@ export const lightTheme = {
   below,
   boxShadows,
   font,
+  size,
   spaces: [0, 4, 8, 16, 32, 64, 128],
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
   colors:{
@@ -44,6 +45,9 @@ export const lightTheme = {
     PRIMARY_HEADER_NUMBER: '#4b4b4b', // цвет хедера и цифр
     SECONDARY_NO_ACTIVE_LINK_BORDER: '#bcbcbc',// цвет неактивной линки и обводка у кнопок/границы блоков
     SECONDARY_LIGHT_BUTTOM:'#eeeeee',// цвет кнопок
+    HOVER_BUTTON_TEXT: '#4b4b4b',
+    HOVER_BUTTON_BACKGROUND: '#ffffff',
+    HOVER_BUTTON_SHADOW: '#c6ccd2',
   },
 }
 
@@ -52,6 +56,7 @@ export const darkTheme = {
   below,
   boxShadows,
   font,
+  size,
   spaces: [0, 4, 8, 16, 32, 64, 128],
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
   colors:{
@@ -60,6 +65,9 @@ export const darkTheme = {
     PRIMARY_HEADER_NUMBER: '#ffffff',
     SECONDARY_NO_ACTIVE_LINK_BORDER: '#a6a6a6',
     SECONDARY_LIGHT_BUTTOM: '#bcbcbc',
+    HOVER_BUTTON_TEXT: '#4b4b4b',
+    HOVER_BUTTON_BACKGROUND: '#ffffff',
+    HOVER_BUTTON_SHADOW: '#c6ccd2',
   },
 }
 
@@ -68,13 +76,17 @@ export const coloredTheme = {
   below,
   boxShadows,
   font,
+  size,
   spaces: [0, 4, 8, 16, 32, 64, 128],
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
   colors:{
     WHITE:'#ffffff',
     BODY_HEADFONT: '#f7b1c5',
     PRIMARY_HEADER_NUMBER: '#6c5b7b',
-    SECONDARY_NO_ACTIVE_LINK_BORDER: '#bcbcbc',
+    SECONDARY_NO_ACTIVE_LINK_BORDER: '#e6e6e6',
     SECONDARY_LIGHT_BUTTOM:'#eeeeee',
+    HOVER_BUTTON_TEXT: '#4b4b4b',
+    HOVER_BUTTON_BACKGROUND: '#ffffff',
+    HOVER_BUTTON_SHADOW: '#a46dae',
   },
 }
