@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+
 import { Arrow, DropDownContainer, ListItem, DropDownList, DropDownListContainer, DropDownHeader } from './SelectElem.styled'
+
 
 const options = ['Light theme', 'Dark theme', 'Colored theme']
 
@@ -14,8 +17,8 @@ export const SelectElem = ({checkElem}) => {
     setIsOpen(false)
     checkElem(value)
   }
-  return (
 
+  return (
     <DropDownContainer>
       <DropDownHeader onClick={toggling}>
         <Arrow/>
@@ -33,6 +36,9 @@ export const SelectElem = ({checkElem}) => {
         </DropDownListContainer>
       )}
     </DropDownContainer>
-
   )
+}
+
+SelectElem.propTypes = {
+  checkElem: PropTypes.func,
 }

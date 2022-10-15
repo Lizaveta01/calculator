@@ -1,19 +1,20 @@
 import React, { Suspense , Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import {
   HOME_PAGE_ROUTE,
   SETTINGS_PAGE_ROUTE,HOME_PAGE_HISTORY_ROUTE,
 } from '@/constants'
-import { Card } from '@/App/App.styled'
 import Loader from '@/components/Loader'
 import Header from '@/components/Header/Header'
 import HomePage from '@/pages/Home/HomePage'
 import History from '@/components/History/History'
 import SettingsPage from '@/pages/Settings/SettingsPage'
 import { PageLayout } from '@/layouts'
-import { connect } from 'react-redux'
+import { Card } from '@/App/App.styled'
 class App extends Component {
   render() {
 
@@ -47,6 +48,7 @@ class App extends Component {
     )
   }
 }
+
 const mapStateToProps = state => {
   return {
     theme: state.theme,
@@ -54,3 +56,7 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(App)
+
+App.propTypes = {
+  theme: PropTypes.object,
+}

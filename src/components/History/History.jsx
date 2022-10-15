@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect }  from 'react-redux'
+import PropTypes from 'prop-types'
+
 import { HistoryContainer, Wrapper } from '@/components/History/History.styled'
 
 class History extends Component {
-
   render(){
     const { history, historyVisible } = this.props
 
@@ -24,7 +25,6 @@ class History extends Component {
     </Wrapper>
   )
   }
-
 }
 
 const mapStateToProps = state => {
@@ -35,3 +35,8 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(History)
+
+History.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.string),
+  historyVisible: PropTypes.bool,
+}

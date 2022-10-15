@@ -5,8 +5,6 @@ import {store} from '@/store'
 const { dispatch } = store
 const { deleteElem} = bindActionCreators(actions, dispatch)
 
-
-
 export const checkValidation = (el, val) => {
 
   const elem = el.trim()

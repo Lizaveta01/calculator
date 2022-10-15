@@ -116,10 +116,6 @@ export const LinkWrapper = styled.div`
         display: block;
         }
       }
-    /* @media (max-width: 768px) {
-      &.active-burger {
-        display: block;
-      } */
   }
   @media (max-width: 768px) {
     transform: translateX(+100%);

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import { getResult } from '@/helpers/getResult'
-
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
 import { data } from '@/components/Keypad/data'
 import {
   KeyItem,
   KeysContainer,
 } from '@/components/Keypad/Keypad.styled'
-import { bindActionCreators } from 'redux'
+import { getResult } from '@/helpers/getResult'
 import * as actions from '@/actions/actions'
 import { checkValidation } from '@/helpers/checkValidation'
 
@@ -26,8 +27,8 @@ class Keypad extends Component {
       addElem(chekedElem)
     }
 
-    const getButtonOperation = type =>{
-      switch(type){
+    const getButtonOperation = type => {
+      switch (type) {
         case '=':
           return equal(getResult(value))
         case 'C':
@@ -42,12 +43,12 @@ class Keypad extends Component {
     const renderKeys = arr => {
       const items = arr.map(item => {
         return (
-              <KeyItem
-                key={item.view}
-                onClick={() => getButtonOperation(item.view)}>
-                {item.view}
-              </KeyItem>
-            )
+          <KeyItem
+            key={item.view}
+            onClick={() => getButtonOperation(item.view)}>
+            {item.view}
+          </KeyItem>
+        )
       })
       return items
     }
@@ -63,6 +64,7 @@ const mapStateToProps = state => {
     value: state.value,
   }
 }
+
 const mapDispatchToProps = dispatch => {
   const {
     addElem,
@@ -83,3 +85,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Keypad)
+
+Keypad.propTypes = {
+  addElem: PropTypes.func,
+  equal: PropTypes.func,
+  clearAll: PropTypes.func,
+  deleteElem: PropTypes.func,
+  value: PropTypes.string,
+}

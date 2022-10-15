@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import {
   HeaderWrapper,
@@ -12,9 +15,6 @@ import {
   SETTINGS_PAGE_ROUTE,
   HOME_PAGE_HISTORY_ROUTE,
 } from '@/constants'
-
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import * as actions from '@/actions/actions'
 class Header extends Component {
   state = {
@@ -72,11 +72,6 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    historyVisible: state.historyVisible,
-  }
-}
 const mapDispatchToProps = dispatch => {
   const { isDisplayVisible } = bindActionCreators(
     actions,
@@ -89,6 +84,10 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(Header)
+
+Header.propTypes = {
+  isDisplayVisible: PropTypes.func,
+}
