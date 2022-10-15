@@ -5,7 +5,7 @@ import { HistoryContainer, Wrapper } from '@/components/History/History.styled'
 class History extends Component {
 
   render(){
-    const { history } = this.props
+    const { history, historyVisible } = this.props
 
     const createHistory = arr => {
       const elem = arr.map((item, index) => {
@@ -16,7 +16,7 @@ class History extends Component {
     const items = createHistory(history)
 
     return (
-    <Wrapper>
+    <Wrapper className={historyVisible ? '' : 'hidden'}>
       <p>{history.length > 0 ? 'History' : 'History is empty'}</p>
       <HistoryContainer>
       {items}
@@ -30,6 +30,7 @@ class History extends Component {
 const mapStateToProps = state => {
   return {
     history: state.history,
+    historyVisible: state.historyVisible.history,
   }
 }
 

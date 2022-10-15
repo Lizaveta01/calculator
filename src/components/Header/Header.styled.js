@@ -5,11 +5,16 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px 20px;
   background-color: ${({ theme }) =>
     theme.colors.PRIMARY_HEADER_NUMBER};
   p {
     color: ${({ theme }) => theme.colors.BODY_HEADFONT};
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    p{
+      font-size: 28px;
+    }
   }
 `
 export const MenuIconDiv = styled.div`
@@ -75,10 +80,18 @@ export const MenuIconDiv = styled.div`
     display: flex;
   }
 `
-
+export const FirstlineHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 20px;
+`
 export const LinkWrapper = styled.div`
   display: flex;
   gap: 16px;
+  padding: 20px;
+
   a {
     color: ${({ theme }) =>
       theme.colors.SECONDARY_NO_ACTIVE_LINK_BORDER};
@@ -94,9 +107,43 @@ export const LinkWrapper = styled.div`
       color: ${({ theme }) => theme.colors.BODY_HEADFONT};
       border-bottom: 2px solid
         ${({ theme }) => theme.colors.BODY_HEADFONT};
+      pointer-events: none;
+      cursor: default;
     }
+    &.active-burger {
+        display: none;
+        @media (max-width: 768px) {
+        display: block;
+        }
+      }
+    /* @media (max-width: 768px) {
+      &.active-burger {
+        display: block;
+      } */
   }
   @media (max-width: 768px) {
-    display: none;
+    transform: translateX(+100%);
+    transition: all 0.3s;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 60px;
+    z-index: 100;
+    align-items: center;
+    top: 60px;
+    left: 0;
+    gap: 26px;
+    &.active {
+    flex-direction: column;
+    background-color: ${({ theme }) =>
+      theme.colors.PRIMARY_HEADER_NUMBER};
+    display: flex !important;
+    height: 100vh;
+    transform: translateX(0);
+  }
+    a {
+      font-size: 28px;
+      line-height: 34px;
+    }
   }
 `

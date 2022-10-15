@@ -7,7 +7,7 @@ display: flex;
 justify-content:flex-end;
 align-items: center;
 border-bottom: 2px solid ${({ theme }) => theme.colors.SECONDARY_NO_ACTIVE_LINK_BORDER};
-padding:0 80px;
+padding:0 90px;
 p{
   color: ${({ theme }) => theme.colors.PRIMARY_HEADER_NUMBER};
   font-size: 30px;
@@ -15,6 +15,9 @@ p{
   border:none;
   text-align:end;
 }
+@media (max-width: 1200px) {
+  padding:0 8%;
+  }
 `
 
 

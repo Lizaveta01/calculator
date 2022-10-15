@@ -6,7 +6,6 @@ import { data } from '@/components/Keypad/data'
 import {
   KeyItem,
   KeysContainer,
-  Wrapper,
 } from '@/components/Keypad/Keypad.styled'
 import { bindActionCreators } from 'redux'
 import * as actions from '@/actions/actions'

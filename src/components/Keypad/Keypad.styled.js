@@ -1,20 +1,17 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  margin: 0 auto;
-  padding-left: 60px;
-`
-
 export const KeysContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 30px 60px;
   flex-wrap: wrap;
-  padding: 40px 10px 20px 90px;
+  margin-top: 40px;
+  padding-left: 90px;
+  @media (max-width: 1200px) {
+    gap: 1%;
+    padding-left: 4%;
+  }
 `
 export const KeyItem = styled.button`
   transition: all 0.3s ease 0s;
@@ -34,11 +31,15 @@ export const KeyItem = styled.button`
   border-radius: 18px;
   font-size: 30px;
   &:hover {
-    color: ${({ theme }) =>
-    theme.colors.HOVER_BUTTON_TEXT};
+    color: ${({ theme }) => theme.colors.HOVER_BUTTON_TEXT};
     background: ${({ theme }) =>
-    theme.colors.HOVER_BUTTON_BACKGROUND};
-    box-shadow: 12px 16px 15px -5px ${({ theme }) =>
-    theme.colors.HOVER_BUTTON_SHADOW};
+      theme.colors.HOVER_BUTTON_BACKGROUND};
+    box-shadow: 12px 16px 15px -5px ${({ theme }) => theme.colors.HOVER_BUTTON_SHADOW};
+  }
+  @media (max-width: 1200px) {
+    width: 17%;
+    height: 24%;
+    border-radius: 8px;
+    margin-bottom: 6px;
   }
 `

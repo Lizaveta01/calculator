@@ -28,6 +28,9 @@ export default createGlobalStyle`
   html, body {
     width: 100%;
     height: 100%;
+    @media (max-width: 768px) {
+      overflow: hidden;
+    }
   }
 
   body {
@@ -45,6 +48,7 @@ export default createGlobalStyle`
     &::-webkit-scrollbar {
     background-color: #8070d4;
     width: 12px;
+
   }
 
   &::-webkit-scrollbar-track {

@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   value: '0',
   theme: {...lightTheme},
   history: [],
+  historyVisible: {display: true, history: false},
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -46,7 +47,11 @@ const reducer = (state = INITIAL_STATE, action) => {
         value: '0',
         history:[],
       }
-
+      case "ADAPTIVE_HISTORY":
+        return {
+          ...state,
+          historyVisible:{display: action.status, history: !action.status},
+        }
     default:
       return state
   }

@@ -42,6 +42,10 @@ export const Wrapper = styled.div`
       box-shadow: 12px 16px 15px -2px ${({ theme }) => theme.colors.HOVER_BUTTON_SHADOW};
     }
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    min-height: 100vh;
+  }
 `
 export const SettingsContainer = styled.div`
   display: flex;
@@ -70,4 +74,5 @@ export const SettingsContainer = styled.div`
     font-size: 20px;
     padding: 0px 12px;
   }
+
 `

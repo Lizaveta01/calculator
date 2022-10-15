@@ -5,12 +5,13 @@ export const Card = styled.div`
   height: 100%;
   padding-bottom: 10px;
   background-color: ${({ theme }) => theme.colors.BODY_HEADFONT};
-  /* border-radius: 32px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: ${({ theme }) => theme.boxShadows[0]};
-  /* padding: ${({ theme }) => theme.spaces[4]}px; */
+  @media (max-width: 768px) {
+  height: 100vh;
+  }
 `
 
 export const Heading = styled.h3``

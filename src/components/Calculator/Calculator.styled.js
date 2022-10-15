@@ -14,5 +14,14 @@ export const ControlViewContainer = styled.div`
   padding: 0 10px;
   @media (max-width: 768px) {
     width: 100%;
+    min-height: 100vh;
+  }
+  &.hidden{
+    display: none;
+  }
+`
+export const HistoryContainer = styled.div`
+  &.hidden{
+    display: none;
   }
 `

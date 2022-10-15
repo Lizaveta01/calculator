@@ -5,4 +5,4 @@ export const CLEAR_HISTORY = "CLEAR_HISTORY"
 export const CLEAR = "CLEAR"
 export const DELETE = "DELETE"
 export const THEME= "THEME"
-
+export const ADAPTIVE_HISTORY = "ADAPTIVE_HISTORY"
