@@ -21,7 +21,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         value: action.value,
       }
     case "ADD_HISTORY":
-      console.log('history', action.history)
+
       return {
         ...state,
         history: [action.history,...state.history],
@@ -29,7 +29,7 @@ const reducer = (state = INITIAL_STATE, action) => {
     case "CLEAR":
       return {
         ...state,
-        value: '',
+        value: '0',
       }
     case "DELETE":
       return {

@@ -9,17 +9,24 @@ import {
   ControlViewContainer,
   Wrapper,
 } from '@/components/Calculator/Calculator.styled'
+import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary'
 class Calculator extends Component {
   render() {
-    const { displayVisible} = this.props
+    const { displayVisible } = this.props
     return (
       <Wrapper>
         <ControlViewContainer
           className={displayVisible ? '' : 'hidden'}>
-          <Display />
-          <Keypad />
+          <ErrorBoundary>
+            <Display />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Keypad />
+          </ErrorBoundary>
         </ControlViewContainer>
-        <History />
+        <ErrorBoundary>
+          <History />
+        </ErrorBoundary>
       </Wrapper>
     )
   }

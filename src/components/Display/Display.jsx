@@ -5,7 +5,9 @@ import { connect }  from 'react-redux'
 import { Wrapper } from '@/components/Display/Display.styled'
 
 class Display extends Component {
+
   render() {
+    
     const { value } = this.props
     return (
       <Wrapper>

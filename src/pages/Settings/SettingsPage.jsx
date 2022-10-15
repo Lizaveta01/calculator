@@ -1,10 +1,13 @@
 import React from 'react'
 import ControlPanel from '@/components/ControlPanel/ControlPanel'
+import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary'
 
 const SettingsPage = () => {
   return (
     <React.Fragment>
-      <ControlPanel />
+      <ErrorBoundary>
+        <ControlPanel />
+      </ErrorBoundary>
     </React.Fragment>
   )
 }

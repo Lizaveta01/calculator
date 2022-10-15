@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-
 import { SettingsContainer, Wrapper } from '@/components/ControlPanel/ControlPanel.styled'
 import { lightTheme, darkTheme, coloredTheme } from '@/theme'
 import { switchTheme, clearAllHistory } from '@/actions/actions'
+
 import { SelectElem } from './SelectElem'
 
 const ControlPanel = () => {
@@ -26,7 +26,7 @@ const ControlPanel = () => {
   const clearHistory = () => {
     dispatch(clearAllHistory())
   }
-
+  
   return (
     <Wrapper>
       <h1>Settings</h1>

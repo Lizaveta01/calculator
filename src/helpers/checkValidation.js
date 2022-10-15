@@ -3,7 +3,7 @@ import * as actions from "@/actions/actions"
 import {store} from '@/store'
 
 const { dispatch } = store
-const { deleteElem} = bindActionCreators(actions, dispatch)
+const { deleteElem, clearAll} = bindActionCreators(actions, dispatch)
 
 export const checkValidation = (el, val) => {
 
@@ -13,12 +13,32 @@ export const checkValidation = (el, val) => {
   const operation = [ '+', '-', '/', '*', '%']
   const operationNoStart = ['+','/', '*', ')', '=',  '0', '%']
 
-
- if(value.length===1 && value.indexOf(0)=== 0) {
+// Удаление начального нуля перед операцией
+ if(value.length === 1 && value === '0') {
   deleteElem()
  }
+
+ // Проверка деления на 0
+ if(lastSymbol === '/' && elem === '0'){
+   clearAll()
+   deleteElem()
+   return 'Error'
+ }
+
+ // Проверка если последний элемент это ошибка
+ if(value === 'Error'){
+  clearAll()
+  if(operationNoStart.includes(elem)) {
+    return ''
+  } else if (elem === '.') {
+    return `${el}`
+  } else {
+    return el
+  }
+}
+
 // Проверка если последний элемент это пустая строка
-  if (lastSymbol === ''){
+  if (lastSymbol === '0'){
     if(operationNoStart.includes(elem)) {
       return ''
     } else if (elem === '.') {
