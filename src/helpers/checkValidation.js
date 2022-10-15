@@ -15,7 +15,16 @@ export const checkValidation = (el, val) => {
 
 // Удаление начального нуля перед операцией
  if(value.length === 1 && value === '0') {
+
+
   deleteElem()
+  if(operationNoStart.includes(elem)) {
+    return '0'
+  } else if (elem === '.') {
+    return `0${el}`
+  } else {
+    return el
+  }
  }
 
  // Проверка деления на 0
@@ -28,8 +37,9 @@ export const checkValidation = (el, val) => {
  // Проверка если последний элемент это ошибка
  if(value === 'Error'){
   clearAll()
+  deleteElem()
   if(operationNoStart.includes(elem)) {
-    return ''
+    return '0'
   } else if (elem === '.') {
     return `${el}`
   } else {

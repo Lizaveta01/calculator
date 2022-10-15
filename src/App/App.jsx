@@ -9,7 +9,6 @@ import {
   SETTINGS_PAGE_ROUTE,
   HOME_PAGE_HISTORY_ROUTE,
 } from '@/constants'
-import Loader from '@/components/Loader'
 import Header from '@/components/Header/Header'
 import HomePage from '@/pages/Home/HomePage'
 import History from '@/components/History/History'
@@ -23,7 +22,6 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <Suspense fallback={<Loader />}>
           <PageLayout>
             <Card>
               <ErrorBoundary>
@@ -47,7 +45,6 @@ class App extends Component {
               </Switch>
             </Card>
           </PageLayout>
-        </Suspense>
       </ThemeProvider>
     )
   }
