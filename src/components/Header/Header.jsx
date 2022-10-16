@@ -39,16 +39,17 @@ class Header extends Component {
     }
 
     return (
-      <HeaderWrapper>
+      <HeaderWrapper data-cy="header-wrapper">
         <FirstlineHeader>
           <p>Calculator App</p>
           <MenuIconDiv
+            data-cy="burger-icon"
             onClick={() => this.handleMenuClick()}
             className={menuOpen ? 'active' : ''}>
             <span />
           </MenuIconDiv>
         </FirstlineHeader>
-        <LinkWrapper className={menuOpen ? 'active' : ''}>
+        <LinkWrapper className={menuOpen ? 'active' : ''} data-cy="link-wrapper">
           <NavLink
             exact
             to={HOME_PAGE_ROUTE}

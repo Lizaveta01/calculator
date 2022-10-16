@@ -1,4 +1,4 @@
-import React, { Suspense, Component } from 'react'
+import React, { Suspense , Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { connect } from 'react-redux'
@@ -6,9 +6,9 @@ import PropTypes from 'prop-types'
 
 import {
   HOME_PAGE_ROUTE,
-  SETTINGS_PAGE_ROUTE,
-  HOME_PAGE_HISTORY_ROUTE,
+  SETTINGS_PAGE_ROUTE,HOME_PAGE_HISTORY_ROUTE,
 } from '@/constants'
+import Loader from '@/components/Loader/index'
 import Header from '@/components/Header/Header'
 import HomePage from '@/pages/Home/HomePage'
 import History from '@/components/History/History'
@@ -18,16 +18,17 @@ import { Card } from '@/App/App.styled'
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary'
 class App extends Component {
   render() {
+
     const { theme } = this.props
 
     return (
       <ThemeProvider theme={theme}>
+        <Suspense fallback={<Loader />}>
           <PageLayout>
-            <Card>
-              <ErrorBoundary>
-                <Header />
-              </ErrorBoundary>
-
+            <Card data-cy="app-wrapper">
+            <ErrorBoundary>
+             <Header />
+            </ErrorBoundary>
               <Switch>
                 <Route
                   exact
@@ -45,6 +46,7 @@ class App extends Component {
               </Switch>
             </Card>
           </PageLayout>
+        </Suspense>
       </ThemeProvider>
     )
   }

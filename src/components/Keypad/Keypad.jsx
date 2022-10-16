@@ -55,7 +55,7 @@ class Keypad extends Component {
 
     const keys = renderKeys(data)
 
-    return <KeysContainer>{keys}</KeysContainer>
+    return <KeysContainer data-cy="keypad-wrapper">{keys}</KeysContainer>
   }
 }
 

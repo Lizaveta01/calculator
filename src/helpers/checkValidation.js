@@ -1,9 +1,8 @@
 import { bindActionCreators } from "redux"
 import * as actions from "@/actions/actions"
 import {store} from '@/store'
-
 const { dispatch } = store
-const { deleteElem, clearAll} = bindActionCreators(actions, dispatch)
+const { deleteElem, clearAll } = bindActionCreators(actions, dispatch)
 
 export const checkValidation = (el, val) => {
 
@@ -11,48 +10,28 @@ export const checkValidation = (el, val) => {
   const value = val.split(' ').join('')
   const lastSymbol = value.slice(-1)
   const operation = [ '+', '-', '/', '*', '%']
-  const operationNoStart = ['+','/', '*', ')', '=',  '0', '%']
+  const operationNoStart = ['+','/', '*', ')', '=', '%']
 
-// Удаление начального нуля перед операцией
- if(value.length === 1 && value === '0') {
-
-
-  deleteElem()
-  if(operationNoStart.includes(elem)) {
-    return '0'
-  } else if (elem === '.') {
-    return `0${el}`
-  } else {
-    return el
-  }
- }
-
- // Проверка деления на 0
- if(lastSymbol === '/' && elem === '0'){
-   clearAll()
-   deleteElem()
-   return 'Error'
- }
-
- // Проверка если последний элемент это ошибка
- if(value === 'Error'){
-  clearAll()
-  deleteElem()
-  if(operationNoStart.includes(elem)) {
-    return '0'
-  } else if (elem === '.') {
-    return `${el}`
-  } else {
-    return el
-  }
-}
-
-// Проверка если последний элемент это пустая строка
-  if (lastSymbol === '0'){
+  // Удаление начального нуля перед операцией
+  if(value.length === 1 && value === '0') {
+    deleteElem()
     if(operationNoStart.includes(elem)) {
-      return ''
+      return `0${el}`
     } else if (elem === '.') {
       return `0${el}`
+    } else {
+      return el
+    }
+  }
+
+  // Проверка если последний элемент это ошибка
+  if(value === 'Error'){
+    clearAll()
+    deleteElem()
+    if(operationNoStart.includes(elem)) {
+      return '0'
+    } else if (elem === '.') {
+      return `${el}`
     } else {
       return el
     }
@@ -84,7 +63,7 @@ export const checkValidation = (el, val) => {
 
   // Проверка если последний элемент это цифра
   if (lastSymbol.match(/\d+/g)) {
-    if (elem === '(') {
+   if (elem === '(') {
       return ''
     } else if (elem === '.') {
       const str = value.split('').reverse()
@@ -113,9 +92,10 @@ export const checkValidation = (el, val) => {
 
   // Проверка если последний элемент это точка
   if (lastSymbol === '.'){
+    console.log('.')
     if (elem === '.' || elem === '(' || elem === ')' || elem === '-' || operationNoStart.includes(elem)) {
       return ''
-    } else {
+    } else{
       return el
     }
   }

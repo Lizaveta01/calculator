@@ -7,11 +7,11 @@ import { Wrapper } from '@/components/Display/Display.styled'
 class Display extends Component {
 
   render() {
-    
+
     const { value } = this.props
     return (
-      <Wrapper>
-        <p>{value}</p>
+      <Wrapper data-cy="display-wrapper">
+        <p data-cy="display-value">{value}</p>
       </Wrapper>
     )
   }

@@ -19,14 +19,14 @@ export const SelectElem = ({checkElem}) => {
   }
 
   return (
-    <DropDownContainer>
-      <DropDownHeader onClick={toggling}>
+    <DropDownContainer >
+      <DropDownHeader onClick={toggling} data-cy="selected-theme">
         <Arrow/>
         {selectedOption || 'Light theme'}
       </DropDownHeader>
       {isOpen && (
         <DropDownListContainer>
-          <DropDownList>
+          <DropDownList data-cy="option-theme-container">
             {options.map(option => (
               <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
                 {option}

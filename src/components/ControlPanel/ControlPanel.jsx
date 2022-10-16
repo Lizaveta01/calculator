@@ -26,15 +26,15 @@ const ControlPanel = () => {
   const clearHistory = () => {
     dispatch(clearAllHistory())
   }
-  
+
   return (
-    <Wrapper>
+    <Wrapper >
       <h1>Settings</h1>
-      <SettingsContainer>
+      <SettingsContainer data-cy="settings-wrapper">
         <p>Switch Theme</p>
         <SelectElem checkElem={e => checkTheme(e)}/>
       </SettingsContainer>
-      <button onClick={clearHistory()}> Clear All History</button>
+      <button onClick={clearHistory()} data-cy="history-clean-items"> Clear All History</button>
     </Wrapper>
   )
 }

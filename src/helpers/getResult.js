@@ -38,7 +38,13 @@ export function getResult(str) {
   }
 
   const res = numbers.join()
-  return res
+
+  if(res === 'NaN'){
+    return 'Error'
+  } else {
+    return res
+  }
+
 
   function checkValue(el) {
     if (symbols.length === 0) {
@@ -77,15 +83,15 @@ export function getResult(str) {
         break
       case '+':
         addHistory(`${prevLastNum} + ${lastNum}`)
-        value = (prevLastNum + lastNum).toString()
+        value = (roundToThree(prevLastNum + lastNum)).toString()
         break
       case '-':
         addHistory(`${prevLastNum} - ${lastNum}`)
-        value = (prevLastNum - lastNum).toString()
+        value = (roundToThree(prevLastNum - lastNum)).toString()
         break
       case '%':
         addHistory(`${prevLastNum} % ${lastNum}`)
-        value = (prevLastNum % lastNum).toString()
+        value = (roundToThree(prevLastNum % lastNum)).toString()
         break
       case '(':
         el = 'end'
