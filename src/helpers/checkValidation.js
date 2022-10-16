@@ -10,15 +10,17 @@ export const checkValidation = (el, val) => {
   const value = val.split(' ').join('')
   const lastSymbol = value.slice(-1)
   const operation = [ '+', '-', '/', '*', '%']
-  const operationNoStart = ['+','/', '*', ')', '=', '%']
+  const operationNoStart = ['+','/', '*', '=', '%', '-']
 
   // Удаление начального нуля перед операцией
-  if(value.length === 1 && value === '0') {
+  if(value === '0') {
     deleteElem()
     if(operationNoStart.includes(elem)) {
       return `0${el}`
     } else if (elem === '.') {
       return `0${el}`
+    } else if (elem === ')') {
+      return '0'
     } else {
       return el
     }
@@ -31,7 +33,7 @@ export const checkValidation = (el, val) => {
     if(operationNoStart.includes(elem)) {
       return '0'
     } else if (elem === '.') {
-      return `${el}`
+      return `0${el}`
     } else {
       return el
     }
@@ -47,6 +49,8 @@ export const checkValidation = (el, val) => {
       } else {
         return ''
       }
+    } else if (elem === '(' || elem === '.') {
+      return ''
     } else {
       return el
     }
@@ -76,7 +80,7 @@ export const checkValidation = (el, val) => {
         } else if (i === str.length - 1) {
           return el
         } else {
-          console.log('цифра')
+          console.log('')
         }
       }
     } else if(elem === ')'){
@@ -92,7 +96,6 @@ export const checkValidation = (el, val) => {
 
   // Проверка если последний элемент это точка
   if (lastSymbol === '.'){
-    console.log('.')
     if (elem === '.' || elem === '(' || elem === ')' || elem === '-' || operationNoStart.includes(elem)) {
       return ''
     } else{
@@ -102,7 +105,11 @@ export const checkValidation = (el, val) => {
 
   // Проверка если последний элемент это операция
   if (operation.includes(lastSymbol)){
-    if (elem === '.') {
+
+
+    if (lastSymbol !== '-' && value.length === 1 && ( elem.match(/\d+/g) || elem === '(' || elem === '.')) {
+      return ''
+    } else if (elem === '.') {
       return `0${el}`
     } else if (elem === ')') {
       return ''
@@ -124,7 +131,6 @@ function isBalanced(string) {
   let canClose = true
 
   if (str.includes(')')){
-    console.log(str)
     for (let i = 0; i < str.length; ++i) {
         const char = str[i]
         const index = brackets.indexOf(char)
