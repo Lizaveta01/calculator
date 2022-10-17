@@ -44,7 +44,7 @@ const ControlPanel = () => {
         <SelectElem checkElem={e => checkTheme(e)} />
       </SettingsContainer>
       <button
-        onClick={clearHistory()}
+        onClick={clearHistory}
         data-cy="history-clean-items">
         {' '}
         Clear All History
