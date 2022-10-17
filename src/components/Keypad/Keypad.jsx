@@ -34,8 +34,17 @@ class Keypad extends Component {
         case 'C':
           return clearAll()
         case 'CE':
-          return deleteElem()
+          if (value.length === 1){
+            clearAll()
+            break
+          } else if(value === 'Error'){
+            clearAll()
+            break
+          } else {
+            return deleteElem()
+          }
         default:
+
           return checkElem(type)
       }
     }

@@ -370,4 +370,22 @@ describe('Validation display input', () => {
     cy.get('[data-cy=display-value]').contains('( 1 + 2 ) + ( 1 + ( 2 + ( 3 + 4 ) ) )')
   })
 
+  it('if value is Error and you click CE',  () => {
+
+
+    cy.get('button').contains('/').click()
+    cy.get('button').contains('0').click()
+    cy.get('button').contains('=').click()
+    cy.get('button').contains('CE').click()
+    cy.get('[data-cy=display-value]').contains('0')
+
+  })
+
+  it('if value is 0 and you click CE',  () => {
+
+    cy.get('button').contains('CE').click()
+    cy.get('[data-cy=display-value]').contains('0')
+
+  })
+
 })
