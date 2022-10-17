@@ -10,6 +10,7 @@ import {
   Wrapper,
 } from '@/components/Calculator/Calculator.styled'
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary'
+
 class Calculator extends Component {
   render() {
     const { displayVisible } = this.props

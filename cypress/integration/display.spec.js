@@ -85,13 +85,13 @@ describe('Validation display input', () => {
     cy.get('button').contains('0').click()
     cy.get('button').contains('=').click()
     cy.get('button').contains('-').click()
-    cy.get('[data-cy=display-value]').contains('-')
+    cy.get('[data-cy=display-value]').contains('0')
 
     cy.get('button').contains('/').click()
     cy.get('button').contains('0').click()
     cy.get('button').contains('=').click()
     cy.get('button').contains('(').click()
-    cy.get('[data-cy=display-value]').contains(')')
+    cy.get('[data-cy=display-value]').contains('(')
 
     cy.get('button').contains('/').click()
     cy.get('button').contains('0').click()
@@ -199,18 +199,16 @@ describe('Validation display input', () => {
     cy.get('button').contains('C').click()
 
     cy.get('button').contains('*').click()
-    cy.get('button').contains('*').click()
+    cy.get('button').contains(')').click()
     cy.get('[data-cy=display-value]').contains('0 *')
 
     cy.get('button').contains('C').click()
 
     cy.get('button').contains('*').click()
-    cy.get('button').contains(')').click()
-    cy.get('[data-cy=display-value]').contains('0 * ')
-
-    cy.get('button').contains('*').click()
     cy.get('button').contains('.').click()
-    cy.get('[data-cy=display-value]').contains('0 * ')
+    cy.get('[data-cy=display-value]').contains('0 * 0.')
+
+    cy.get('button').contains('C').click()
 
     cy.get('button').contains('*').click()
     cy.get('button').contains('(').click()
@@ -270,13 +268,13 @@ describe('Validation display input', () => {
 
     cy.get('button').contains('(').click()
     cy.get('button').contains('*').click()
-    cy.get('[data-cy=display-value]').contains('(')
+    cy.get('[data-cy=display-value]').contains('( 0 * ')
 
     cy.get('button').contains('C').click()
 
     cy.get('button').contains('(').click()
     cy.get('button').contains('-').click()
-    cy.get('[data-cy=display-value]').contains('( -')
+    cy.get('[data-cy=display-value]').contains('( 0 - ')
 
     cy.get('button').contains('C').click()
 
@@ -293,7 +291,7 @@ describe('Validation display input', () => {
     cy.get('button').contains('C').click()
 
     cy.get('button').contains('(').click()
-    cy.get('button').contains('.').click()
+    cy.get('button').contains('(').click()
     cy.get('[data-cy=display-value]').contains('( ( ')
   })
 

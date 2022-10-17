@@ -1,4 +1,4 @@
-describe('Display', () => {
+describe('History', () => {
 
   it('should have a history',  () => {
     cy.visit('/')
@@ -57,7 +57,5 @@ describe('Display', () => {
     cy.get('button').contains('=').click()
     cy.get('[data-cy=history-items]').get('li').should('have.length', 7)
   })
-
-
 
 })

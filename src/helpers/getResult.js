@@ -39,11 +39,11 @@ export function getResult(str) {
 
   const res = numbers.join()
 
-  if(res === 'NaN'){
-    return 'Error'
-  } else {
+  // if(res === 'NaN'){
+  //   return 'Error'
+  // } else {
     return res
-  }
+
 
 
   function checkValue(el) {
@@ -112,6 +112,12 @@ export function getResult(str) {
 }
 
 function roundToThree(num) {
-  return +(Math.round(num + "e+3")  + "e-3")
+  if(num === Infinity || isNaN(num)) {
+    return 'Error'
+  } else {
+    const value = +(Math.round(num + "e+3")  + "e-3")
+    return value || 0
+  }
+
 }
 

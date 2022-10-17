@@ -71,7 +71,6 @@ describe('Calculator operations', () => {
   })
 
   it('minus operation',  () => {
-
     cy.get('button').contains('C').click()
 
     cy.get('button').contains('1').click()
@@ -290,7 +289,7 @@ it('divide with remainder operation (%)',  () => {
   cy.get('button').contains('.').click()
   cy.get('button').contains('3').click()
   cy.get('button').contains('=').click()
-  cy.get('[data-cy=display-value]').contains('Error')
+  cy.get('[data-cy=display-value]').contains('0')
 
   cy.get('button').contains('C').click()
 

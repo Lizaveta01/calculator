@@ -10,7 +10,7 @@ export const checkValidation = (el, val) => {
   const value = val.split(' ').join('')
   const lastSymbol = value.slice(-1)
   const operation = [ '+', '-', '/', '*', '%']
-  const operationNoStart = ['+','/', '*', '=', '%', '-']
+  const operationNoStart = ['+','/', '*', '=', '%', '-', ')']
 
   // Удаление начального нуля перед операцией
   if(value === '0') {
@@ -60,6 +60,8 @@ export const checkValidation = (el, val) => {
   if(lastSymbol === '('){
     if (elem === ')'){
       return ''
+    } else if (operationNoStart.includes(elem) || elem === '.') {
+      return `0${el}`
     } else {
       return el
     }

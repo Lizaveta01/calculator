@@ -74,5 +74,4 @@ export const SettingsContainer = styled.div`
     font-size: 20px;
     padding: 0px 12px;
   }
-
 `
