@@ -199,6 +199,12 @@ describe('Validation display input', () => {
     cy.get('button').contains('C').click()
 
     cy.get('button').contains('*').click()
+    cy.get('button').contains('/').click()
+    cy.get('[data-cy=display-value]').contains('0 /')
+
+    cy.get('button').contains('C').click()
+
+    cy.get('button').contains('*').click()
     cy.get('button').contains(')').click()
     cy.get('[data-cy=display-value]').contains('0 *')
 

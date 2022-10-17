@@ -118,6 +118,7 @@ export const checkValidation = (el, val) => {
     } else if (operation.includes(elem)) {
       deleteElem()
       deleteElem()
+      deleteElem()
       return el
     } else {
       return el
