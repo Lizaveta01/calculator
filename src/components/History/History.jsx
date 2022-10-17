@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { connect }  from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { HistoryContainer, Wrapper } from '@/components/History/History.styled'
-import Loader from '../Loader'
+import {
+  HistoryContainer,
+  Wrapper,
+} from '@/components/History/History.styled'
 
 class History extends Component {
-  render(){
+  render() {
     const { history, historyVisible } = this.props
 
     const createHistory = arr => {
@@ -18,13 +20,19 @@ class History extends Component {
     const items = createHistory(history)
 
     return (
-    <Wrapper className={historyVisible ? '' : 'hidden'} data-cy="history-wrapper">
-      <p data-cy="history-title">{history.length > 0 ? 'History' : 'History is empty'}</p>
-      <HistoryContainer data-cy="history-items">
-      {items}
-      </HistoryContainer>
-    </Wrapper>
-  )
+      <Wrapper
+        className={historyVisible ? '' : 'hidden'}
+        data-cy="history-wrapper">
+        <p data-cy="history-title">
+          {history.length > 0
+            ? 'History'
+            : 'History is empty'}
+        </p>
+        <HistoryContainer data-cy="history-items">
+          {items}
+        </HistoryContainer>
+      </Wrapper>
+    )
   }
 }
 

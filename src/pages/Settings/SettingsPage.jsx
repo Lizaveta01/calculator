@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ControlPanel from '@/components/ControlPanel/ControlPanel'
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary'
 

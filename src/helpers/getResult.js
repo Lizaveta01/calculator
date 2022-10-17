@@ -1,10 +1,10 @@
-import { bindActionCreators } from "redux"
-import * as actions from "@/actions/actions"
+import { bindActionCreators } from 'redux'
+
+import * as actions from '@/actions/actions'
 import {store} from '@/store'
 
 const { dispatch } = store
 const { addHistory } = bindActionCreators(actions, dispatch)
-
 
 export function getResult(str) {
   const numbers = []
@@ -38,25 +38,17 @@ export function getResult(str) {
   }
 
   const res = numbers.join()
-
-  // if(res === 'NaN'){
-  //   return 'Error'
-  // } else {
-    return res
-
-
+  return res
 
   function checkValue(el) {
     if (symbols.length === 0) {
       symbols.push(el)
     } else if (
-      operationValue[el] <
-      operationValue[symbols[symbols.length - 1]]
+      operationValue[el] < operationValue[symbols[symbols.length - 1]]
     ) {
       countValue(el)
     } else if (
-      operationValue[el] ===
-      operationValue[symbols[symbols.length - 1]]
+      operationValue[el] === operationValue[symbols[symbols.length - 1]]
     ) {
       countValue(el)
     } else if (el === ')') {

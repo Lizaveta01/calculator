@@ -16,6 +16,7 @@ import {
   HOME_PAGE_HISTORY_ROUTE,
 } from '@/constants'
 import * as actions from '@/actions/actions'
+
 class Header extends Component {
   state = {
     menuOpen: false,
@@ -31,7 +32,7 @@ class Header extends Component {
 
   render() {
     const { menuOpen } = this.state
-    const {isDisplayVisible} = this.props
+    const { isDisplayVisible } = this.props
 
     const handleVisible = status => {
       isDisplayVisible(status)
@@ -49,7 +50,9 @@ class Header extends Component {
             <span />
           </MenuIconDiv>
         </FirstlineHeader>
-        <LinkWrapper className={menuOpen ? 'active' : ''} data-cy="link-wrapper">
+        <LinkWrapper
+          className={menuOpen ? 'active' : ''}
+          data-cy="link-wrapper">
           <NavLink
             exact
             to={HOME_PAGE_ROUTE}

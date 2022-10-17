@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.BODY_HEADFONT};
   min-height: 600px;
 `
-
 export const ControlViewContainer = styled.div`
   display: flex;
   flex-direction: column;

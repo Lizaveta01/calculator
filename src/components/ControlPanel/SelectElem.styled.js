@@ -3,12 +3,11 @@ import styled from 'styled-components'
 export const DropDownContainer = styled.div`
   width: 10.5em;
 `
-
 export const DropDownHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  position:relative;
+  position: relative;
   cursor: pointer;
   width: 260px;
   height: 60px;
@@ -29,7 +28,8 @@ export const Arrow = styled.div`
   width: 0;
   height: 0;
   border: 12px solid transparent;
-  border-top: 16px solid ${({ theme }) =>
+  border-top: 16px solid
+    ${({ theme }) =>
       theme.colors.SECONDARY_NO_ACTIVE_LINK_BORDER};
   border-radius: 2px;
 `
@@ -38,11 +38,9 @@ export const DropDownListContainer = styled.div`
   z-index: 100;
   width: 260px;
 `
-
 export const DropDownList = styled.ul`
   padding: 0;
   margin: 0;
-
   background: ${({ theme }) => theme.colors.BODY_HEADFONT};
   border: 2px solid
     ${({ theme }) =>
@@ -52,7 +50,6 @@ export const DropDownList = styled.ul`
     theme.colors.PRIMARY_HEADER_NUMBER};
   font-size: 20px;
 `
-
 export const ListItem = styled.li`
   cursor: pointer;
   list-style: none;

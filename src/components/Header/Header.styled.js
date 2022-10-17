@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.div`
   }
   @media (max-width: 768px) {
     flex-direction: column;
-    p{
+    p {
       font-size: 28px;
     }
   }
@@ -91,7 +91,6 @@ export const LinkWrapper = styled.div`
   display: flex;
   gap: 16px;
   padding: 20px;
-
   a {
     color: ${({ theme }) =>
       theme.colors.SECONDARY_NO_ACTIVE_LINK_BORDER};
@@ -111,11 +110,11 @@ export const LinkWrapper = styled.div`
       cursor: default;
     }
     &.active-burger {
-        display: none;
-        @media (max-width: 768px) {
+      display: none;
+      @media (max-width: 768px) {
         display: block;
-        }
       }
+    }
   }
   @media (max-width: 768px) {
     transform: translateX(+100%);
@@ -130,13 +129,13 @@ export const LinkWrapper = styled.div`
     left: 0;
     gap: 26px;
     &.active {
-    flex-direction: column;
-    background-color: ${({ theme }) =>
-      theme.colors.PRIMARY_HEADER_NUMBER};
-    display: flex !important;
-    height: 100vh;
-    transform: translateX(0);
-  }
+      flex-direction: column;
+      background-color: ${({ theme }) =>
+        theme.colors.PRIMARY_HEADER_NUMBER};
+      display: flex !important;
+      height: 100vh;
+      transform: translateX(0);
+    }
     a {
       font-size: 28px;
       line-height: 34px;

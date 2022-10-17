@@ -13,5 +13,4 @@ export const Card = styled.div`
   height: 100vh;
   }
 `
-
 export const Heading = styled.h3``

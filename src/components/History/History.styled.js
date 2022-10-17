@@ -26,12 +26,10 @@ export const Wrapper = styled.div`
       margin-top: 20px;
     }
   }
-
   &.active {
     display: flex !important;
   }
 `
-
 export const HistoryContainer = styled.div`
   display: flex;
   flex-direction: column;

@@ -1,13 +1,11 @@
-import React, { Component }  from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect }  from 'react-redux'
+import { connect } from 'react-redux'
 
 import { Wrapper } from '@/components/Display/Display.styled'
 
 class Display extends Component {
-
   render() {
-
     const { value } = this.props
     return (
       <Wrapper data-cy="display-wrapper">

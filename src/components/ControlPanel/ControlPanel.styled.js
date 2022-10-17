@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
   gap: 20px;
   padding-left: 40px;
   background: ${({ theme }) => theme.colors.BODY_HEADFONT};
-
   h1 {
     font-weight: 500;
     margin-top: 40px;

@@ -1,11 +1,12 @@
-import { bindActionCreators } from "redux"
-import * as actions from "@/actions/actions"
+import { bindActionCreators } from 'redux'
+
+import * as actions from '@/actions/actions'
 import {store} from '@/store'
+
 const { dispatch } = store
 const { deleteElem, clearAll } = bindActionCreators(actions, dispatch)
 
 export const checkValidation = (el, val) => {
-
   const elem = el.trim()
   const value = val.split(' ').join('')
   const lastSymbol = value.slice(-1)
@@ -107,7 +108,6 @@ export const checkValidation = (el, val) => {
 
   // Проверка если последний элемент это операция
   if (operation.includes(lastSymbol)){
-
 
     if (lastSymbol !== '-' && value.length === 1 && ( elem.match(/\d+/g) || elem === '(' || elem === '.')) {
       return ''
